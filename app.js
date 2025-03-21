@@ -85,7 +85,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
     // Use provided fileName or default to original file name
     const finalFileName = fileName ? `${fileName}` : `${Date.now()}-${req.file.originalname}`;
     const fileKey = `records/${userId}/${finalFileName}`;
-    const bucketName = process.env.AWS_BUCKET_NAME; // Ensure this is set in .env
+    const bucketName = "patient-record-db"; // Ensure this is set in .env
 
     const fileParams = {
       Bucket: bucketName,
