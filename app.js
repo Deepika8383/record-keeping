@@ -4,9 +4,14 @@ const multer = require("multer");
 const aws = require("aws-sdk");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 dotenv.config();
 const router = express.Router();
+
+
+app.use(cors()); // ✅ Enable CORS for all origins
+app.use(express.json()); // ✅ Parse JSON requests
 
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
